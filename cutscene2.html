@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaboom Game</title>
+    <script src="https://unpkg.com/kaplay@3001.0.0-alpha.20/dist/kaplay.js"></script>
+  </head>
+<body>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
+
+<style>
+  #audio-controls {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        z-index: 1000;
+    }
+    button {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+        margin: 0 5px;
+    }
+    button:focus {
+        outline: none;
+    }
+    body{
+      background-color:black;
+    }
+    .skip-btn {
+      display: none;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 200px;
+      padding: 15px;
+      margin: 10px 0;
+      font-size: 18px;
+      font-family: 'Orbitron', sans-serif;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #51266b;
+      background: linear-gradient(45deg, #ffffff, #fdeded);
+      border: 2px solid #000;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+      z-index: 3;
+    }
+
+    .skip-btn:hover {
+      background: linear-gradient(45deg, #ffffff, #bebaba);
+      color: #ff0000;
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
+    }
+
+    .skip-btn:active {
+      transform: scale(0.95);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+</style>
+<audio id="myAudio" src="IntroORCutScene.mp3" preload="auto" loop></audio>
+<div id="audio-controls">
+   <button id="playBtn"><i class="fas fa-play"></i></button>
+   <button id="pauseBtn"><i class="fas fa-pause"></i></button>
+   <button id="stopBtn"><i class="fas fa-stop"></i></button>
+</div>
+
+<script>
+ 
+   // Audio controls
+   const audio = document.getElementById('myAudio');
+   const playBtn = document.getElementById('playBtn');
+   const pauseBtn = document.getElementById('pauseBtn');
+   const stopBtn = document.getElementById('stopBtn');
+
+   playBtn.addEventListener('click', () => {
+       audio.play();
+   });
+
+   pauseBtn.addEventListener('click', () => {
+       audio.pause();
+   });
+
+   stopBtn.addEventListener('click', () => {
+       audio.pause();
+       audio.currentTime = 0; // Reset playback to the beginning
+   });
+   player.onCollide("top-door", () => {
+    window.location.href = "game6.html";
+});
+
+</script>
+<button class="skip-btn" onclick="window.location.href='finalboss.html'">Skip ></button>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const audio = document.getElementById('myAudio');
+      const playBtn = document.getElementById('playBtn');
+      const pauseBtn = document.getElementById('pauseBtn');
+      const stopBtn = document.getElementById('stopBtn');
+
+      playBtn.addEventListener('click', () => {
+        audio.play();
+      });
+
+      pauseBtn.addEventListener('click', () => {
+        audio.pause();
+      });
+
+      stopBtn.addEventListener('click', () => {
+        audio.pause();
+        audio.currentTime = 0;
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.code === 'Space') {
+          audio.play();
+        }
+      });
+    });
+  </script>
+  <script>
+    setTimeout(() => {
+      document.querySelector('.skip-btn').style.display = 'block';
+    }, 3000);
+  </script>
+</body>
+</html><script>
+    // Simple dialogues
+
+    kaplay({
+        background: [0, 0, 0], // Purple background (RGB color for purple)
+    });
+
+    loadRoot('https://i.imgur.com/')
+    loadSprite('bg', 't5dnSjN.png');
+    loadSprite("bean", "AiRF3GI.png");
+    loadSprite("bean2", "6sIhgXJ.png");
+    loadSprite("gun", "lkF9kTX.png");
+    loadSprite("mark", "PRtrBsP.png");
+    loadSprite("hexagon", "2SElTxG.png");
+    loadSprite("star", "iO0Yjtc.png");
+    loadSprite('top-door', 'U9nre4n.png')
+    loadSprite('Portal','8HiUBSH.png')
+    add([sprite('Portal'), layer('Portal'), pos(1400,-300), scale(5), rotate(90),]);
+
+    // Define the dialogue data
+    const dialogs = [
+    ["bean", "The witch found us!"], // We are going through the portal.
+    ["bean2", "We have to escape and get back home."],
+    ["bean", "Let's go!"],
+    ["mark", "You ruined everything! Give me that storybook!"],
+    ["bean2", "Ah, we dropped the book!"],
+    ["bean", "Let's get to the next portal and go home!"],
+];
+
+
+    loadSprite('Portal', '8HiUBSH.png', () => {
+        add([
+            sprite('Portal'),
+            origin('center'),
+            pos(width() / 2, height() / 2), // Position it at the center
+            scale(Math.max(width(), height()) / 1000), // Scale the sprite to cover the whole screen
+        ]);
+    });
+
+    let curDialog = 0;
+
+    // Text bubble
+    const textbox = add([
+        rect(width() - 200, 120, { radius: 32 }),
+        anchor("center"),
+        pos(center().x, height() - 100),
+        outline(4),
+    ]);
+
+    // Text
+    const txt = add([
+        text("", { size: 32, width: width() - 230, align: "center" }),
+        pos(textbox.pos),
+        anchor("center"),
+        color(0, 0, 0),
+    ]);
+
+    // Character avatar
+    const avatar = add([
+        sprite("bean"),
+        scale(3),
+        anchor("center"),
+        pos(center().sub(0, 50)),
+    ]);
+    const player2 = add([
+        sprite("bean2"),
+        anchor("center"),
+        pos(center().sub(0, 50)),
+        scale(0.040),
+    ]);
+
+    // Function to update the dialogue and automatically proceed
+    function updateDialog() {
+        const [char, dialog] = dialogs[curDialog];
+
+        // Use a new sprite component to replace the old one
+        avatar.use(sprite(char));
+        // Update the dialog text
+        txt.text = dialog;
+        
+        // Automatically go to the next dialog
+        curDialog = (curDialog + 1) % dialogs.length; // Wrap around to the first dialog when reaching the end
+    }
+
+    // Update the dialog every 3 seconds (3000 milliseconds)
+    setInterval(updateDialog, 3000); // Adjust the timing (e.g., 3000 ms = 3 seconds)
+
+    // Initial call to display the first dialog
+    updateDialog();
+</script>
