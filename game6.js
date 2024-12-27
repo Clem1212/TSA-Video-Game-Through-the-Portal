@@ -164,6 +164,7 @@ scene('rules', () => {
 
 start('title');
 scene('game', () => {
+  
   const MOVE_SPEED = 300
   const INVADER_SPEED = 400
   const SPAWN_DELAY = 15;
@@ -240,14 +241,6 @@ keyDown('down', () => {
 
 
 
-
-  keyDown('i', (list) => {
-    debug.inspect = true
-  })
-  
-  keyDown('o', (list) => {
-    debug.inspect = false
-  })
 
 
   

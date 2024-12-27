@@ -13,7 +13,7 @@ const PIPE_OPEN = 200; // The gap between pipes
 const FALL_DEATH = 600;
 const PIPE_SPAWN_INTERVAL = 3.5; // Seconds
 //const PIPE_SPAWN_INTERVAL = 2.5; // Seconds
-const WIN_SCORE = 20;
+const WIN_SCORE = 10;
 
 // Load assets
 loadRoot("https://i.imgur.com/");
@@ -97,13 +97,13 @@ scene("rules", () => {
 
     // Add stroke for rule 1
     add([
-        text("1. Use W and arrow key to jump", 16),
+        text("1. Use W key and arrow key to fly", 16),
         origin("center"),
         pos(width() / 2 + 1, height() / 2.5 + 1), // Offset for stroke effect
         color(0, 0, 0), // Stroke color (black)
     ]);
     add([
-        text("1. Use W and arrow key to jump", 16),
+        text("1. Use W key and arrow key to fly", 16),
         origin("center"),
         pos(width() / 2, height() / 2.5),
         color(1, 1, 1), // Main text color (white)
@@ -192,7 +192,7 @@ scene("game", () => {
     let topDoorSpawned = false;
 
     action(() => {
-        if (scoreLabel.value >= 8 && !topDoorSpawned) {
+        if (scoreLabel.value >= 4 && !topDoorSpawned) {
             const topDoor = add([
                 sprite("top-door"),
                 pos(width(), 100), // Start at the right edge of the screen

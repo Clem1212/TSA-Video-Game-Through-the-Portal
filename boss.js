@@ -41,7 +41,7 @@ loadSprite('space-invader3', '/AI5SRbU.png')
 loadSprite('space-invader4', '/I6pQvIO.png')
 loadSprite('space-invader5', '/zAlD3nG.png')
 loadSprite('boss', '/5CZlmIl.png')
-loadSprite('Portal', '/8HiUBSH.png')
+loadSprite('Portal', '/ZGhbaSM.png')
 //https://imgur.com/PRtrBsP
 loadSprite('boss2', 'Lq1UdKY.png')
 loadSprite('2-top-left', '/0fOOkok.png')
@@ -413,7 +413,7 @@ scene("game", ({ level, score }) => {
       '=            =====                 =   ',
       '=                                  =   ',
       '=             $        $           =   ',
-      '=     ==               =           =   ',
+      '=                      =           =   ',
       '=                                  =   ',
       '=        =====                     =   ',
       '=                 $                =   ',
@@ -438,7 +438,7 @@ scene("game", ({ level, score }) => {
     '*': [sprite('surprise'), solid(),  scale(0.8), 'mushroom-surprise'],
     '}': [sprite('unboxed'), solid() ,scale(0.8)],
     '8': [sprite('skeletor'), solid() ,scale(2), 'dangerous','skelly'],
-    'P': [sprite('Portal'), scale(0.2), 'Portal'],
+    'P': [sprite('Portal'), scale(2), 'Portal'],
 
     //88
      '_': [sprite('virus1'), solid(), scale(0.3),  'dangerous'],

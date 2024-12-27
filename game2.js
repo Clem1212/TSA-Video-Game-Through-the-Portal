@@ -39,7 +39,7 @@ loadSprite('lanterns', 'wiSiY09.png')
 loadSprite('slicer', '/3P9cwJZ.png')
 loadSprite('fries', '5ZzTgLS.png')
 loadSprite('lean', 'PnSm7GF.png', )
-loadSprite('skeletor', '/3P9cwJZ.png')
+loadSprite('skeletor', '/xH1rfbp.png')
 loadSprite('kaboom', '/QSnbWyw.png')
 
 loadSprite("cursorU", "/qvj4jjH.png"); // Up
@@ -166,8 +166,8 @@ scene('rules', () => {
       text('1. Use WASD and Arrow key', 16),
       origin('center'),
       pos(width() / 2 + 1, height() / 2.5 + 1), // Offset for stroke effect
-      color(1, 1, 1), // Main text color (black)
-    ]);
+    color(1, 1, 1), // Main text color (black)
+  ]);
   add([
       text('1. Use WASD and Arrow key', 16),
       origin('center'),
@@ -176,13 +176,13 @@ scene('rules', () => {
   ]);
   
   add([
-      text('2. Dodge enemies and collect eggs', 14),
+      text('2. Dodge enemies and collect all the eggs', 10),
       origin('center'),
       pos(width() / 2 + 1, height() / 1.8 + 1), // Offset for stroke effect
       color(1, 1, 1), // Main text color (black)
     ]);
   add([
-      text('2. Dodge enemies and collect eggs', 14),
+      text('2. Dodge enemies and collect all the eggs', 10),
       origin('center'),
       pos(width() / 2, height() / 1.8),
       color(0, 0, 0), // Main text color (black)
@@ -248,7 +248,7 @@ scene('game', ({ level, score, }) => {
       'aOO OOOOOOa',
       'aOOOOOOOOOa',
       'aOOO OOOO0a',
-      'aOOOO  OO(a',
+      'aOOOO  O( a',
       'a         a',
       'aaaaaaaaaaa',
     ],
