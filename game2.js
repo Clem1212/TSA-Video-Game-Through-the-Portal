@@ -42,10 +42,10 @@ loadSprite('lean', 'PnSm7GF.png', )
 loadSprite('skeletor', '/xH1rfbp.png')
 loadSprite('kaboom', '/QSnbWyw.png')
 
-loadSprite("cursorU", "/qvj4jjH.png"); // Up
-loadSprite("cursorL", "/QgnWZgH.png"); // Left
-loadSprite("cursorD", "NW9L7cG.png"); // Down
-loadSprite('kaboom2','/L2QzPUQ.png')// Right
+loadSprite("cursorU", "Wbl0Ut7.png"); // Up
+loadSprite("cursorL", "Wbl0Ut7.png"); // Left
+loadSprite("cursorD", "Wbl0Ut7.png"); // Down
+loadSprite('kaboom2','Wbl0Ut7.png')// Right
 
 loadSprite('stairs', 'VghkL08.png')
 

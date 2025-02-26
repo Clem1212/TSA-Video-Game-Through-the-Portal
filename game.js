@@ -72,7 +72,7 @@ kaboom({
   loadSprite('unboxed', '/EBJ3qCL.png')
   
     //https://imgur.com/qsvJ5mY
-  loadSprite('kaboom2','/L2QzPUQ.png')
+  loadSprite('kaboom2','Wbl0Ut7.png')
   
 
   
@@ -114,6 +114,7 @@ kaboom({
   loadSprite('slicer', 'kEPti7g.png')
   loadSprite('skeletor', 'Ei1VnX8.png')
   loadSprite('kaboom', '/QSnbWyw.png')
+  //https://imgur.com/Wbl0Ut7
   loadSprite('stairs', 'VghkL08.png')
   loadSprite('Etest', 'LGGBhuF.png');
   //u4DVsx6.png
@@ -718,9 +719,6 @@ player2.overlaps('bmw', () => {
           
         })
       })
-
-
-
 
 
 
