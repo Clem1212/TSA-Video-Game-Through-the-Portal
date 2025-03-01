@@ -6,9 +6,12 @@ kaboom({
     debug: true,
   clearColor:[1,0,0],
   backgroundAudio: true,
+  stretch: true, // This will help with responsiveness
+  letterbox: true, // Ensures the game doesn't stretch awkwardly
   });
   
-  
+
+
   
   
   

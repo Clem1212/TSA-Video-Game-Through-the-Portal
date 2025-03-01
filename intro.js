@@ -5,6 +5,7 @@ kaboom({
     debug: true,
     clearColor: [1, 0, 0],
     backgroundAudio: true,
+    
   });
   
   // Speed identifiers
