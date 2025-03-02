@@ -483,7 +483,7 @@ function spawnPlatform() {
     ]);
 
     action(() => {
-        scoreLabel.value = Math.floor(player.pos.y / -10); // Score based on height
+        scoreLabel.value = Math.floor(player.pos.y / 10); // Score based on height
         scoreLabel.text = scoreLabel.value;
     });
 });

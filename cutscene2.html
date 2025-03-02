@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="17; url =
+    finalboss.html" />
     <title>Kids Game</title>
     <script src="https://unpkg.com/kaplay@3001.0.0-alpha.20/dist/kaplay.js"></script>
     <link rel="icon" type="image/x-icon" href="img2.png">
@@ -70,65 +71,63 @@
 
 </style>
 <audio id="myAudio" src="cut.mp3" preload="auto" loop></audio>
+<style>
+  #volumeSlider {
+      width: 80px; /* Adjust the width to make it smaller */
+      margin-left: 10px;
+  }
+</style>
 <div id="audio-controls">
-   <button id="playBtn"><i class="fas fa-play"></i></button>
-   <button id="pauseBtn"><i class="fas fa-pause"></i></button>
-   <button id="stopBtn"><i class="fas fa-stop"></i></button>
+  <button id="playBtn" class="tiny5-regular"><i class="fas fa-play"></i></button>
+  <button id="pauseBtn" class="tiny5-regular"><i class="fas fa-pause"></i></button>
+  <button id="stopBtn" class="tiny5-regular"><i class="fas fa-stop"></i></button>
+  <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="1">
 </div>
-
+<script src="https://kaboomjs.com/lib/0.5.0/kaboom.js"></script>
 <script>
- 
-   // Audio controls
-   const audio = document.getElementById('myAudio');
-   const playBtn = document.getElementById('playBtn');
-   const pauseBtn = document.getElementById('pauseBtn');
-   const stopBtn = document.getElementById('stopBtn');
+  // Audio controls
+  const audio = document.getElementById('myAudio');
+  const playBtn = document.getElementById('playBtn');
+  const pauseBtn = document.getElementById('pauseBtn');
+  const stopBtn = document.getElementById('stopBtn');
+  const volumeSlider = document.getElementById('volumeSlider');
 
-   playBtn.addEventListener('click', () => {
-       audio.play();
-   });
+  // Retrieve saved volume from localStorage or set default to 1
+  const savedVolume = localStorage.getItem('audioVolume');
+  audio.volume = savedVolume ? parseFloat(savedVolume) : 1;
+  volumeSlider.value = audio.volume;
 
-   pauseBtn.addEventListener('click', () => {
-       audio.pause();
-   });
+  // Play button functionality
+  playBtn.addEventListener('click', () => {
+      audio.play();
+  });
 
-   stopBtn.addEventListener('click', () => {
-       audio.pause();
-       audio.currentTime = 0; // Reset playback to the beginning
-   });
-   player.onCollide("top-door", () => {
-    window.location.href = "game6.html";
-});
+  // Pause button functionality
+  pauseBtn.addEventListener('click', () => {
+      audio.pause();
+  });
 
+  // Stop button functionality
+  stopBtn.addEventListener('click', () => {
+      audio.pause();
+      audio.currentTime = 0; // Reset playback to the beginning
+  });
+
+  // Volume control functionality
+  volumeSlider.addEventListener('input', () => {
+      audio.volume = volumeSlider.value;
+      localStorage.setItem('audioVolume', volumeSlider.value); // Save volume
+  });
+
+  // Spacebar to auto-play music
+  document.addEventListener('keydown', (event) => {
+      if (event.code === 'Space') {
+          audio.play();
+      }
+  });
 </script>
 <button class="skip-btn" onclick="window.location.href='finalboss.html'">Skip ></button>
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const audio = document.getElementById('myAudio');
-      const playBtn = document.getElementById('playBtn');
-      const pauseBtn = document.getElementById('pauseBtn');
-      const stopBtn = document.getElementById('stopBtn');
 
-      playBtn.addEventListener('click', () => {
-        audio.play();
-      });
-
-      pauseBtn.addEventListener('click', () => {
-        audio.pause();
-      });
-
-      stopBtn.addEventListener('click', () => {
-        audio.pause();
-        audio.currentTime = 0;
-      });
-
-      document.addEventListener('keydown', (event) => {
-        if (event.code === 'Space') {
-          audio.play();
-        }
-      });
-    });
-  </script>
   <script>
     setTimeout(() => {
       document.querySelector('.skip-btn').style.display = 'block';

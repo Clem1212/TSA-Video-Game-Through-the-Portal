@@ -513,10 +513,12 @@ scene("game", ({ level, score }) => {
 
  
 
+
+
   const player = add([
     sprite('WBC'), solid(),
     pos(90, 0),
-    body(),
+    body({ maxVel: 600 }),
     big(),
     origin('bot')
     ,scale(0.7),
@@ -525,7 +527,7 @@ scene("game", ({ level, score }) => {
   const player2 = add([
       sprite('WBC2'), solid(),
       pos(100, 0),
-      body(),
+      body({ maxVel: 600 }),
       big(),
       origin('bot')
       ,scale(0.040),
@@ -694,6 +696,7 @@ player2.collides("Portal", (Portal) => {
 let kaboomSprite = null;
 let kaboom2Active = false;
 let kaboom2Sprite = null;
+
 
 
 

@@ -37,12 +37,21 @@
 </head>
 <body>
     <audio id="myAudio" src="assets/Jack.mp3" preload="auto" loop></audio>
-    <div id="audio-controls">
-        <button id="playBtn"><i class="fas fa-play"></i></button>
-        <button id="pauseBtn"><i class="fas fa-pause"></i></button>
-        <button id="stopBtn"><i class="fas fa-stop"></i></button>
-    </div>
+    
    
+    <script src="https://kaboomjs.com/lib/0.5.0/kaboom.js"></script>
+    <style>
+        #volumeSlider {
+            width: 80px; /* Adjust the width to make it smaller */
+            margin-left: 10px;
+        }
+    </style>
+    <div id="audio-controls">
+        <button id="playBtn" class="tiny5-regular"><i class="fas fa-play"></i></button>
+        <button id="pauseBtn" class="tiny5-regular"><i class="fas fa-pause"></i></button>
+        <button id="stopBtn" class="tiny5-regular"><i class="fas fa-stop"></i></button>
+        <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="1">
+    </div>
     <script src="https://kaboomjs.com/lib/0.5.0/kaboom.js"></script>
     <script>
         // Audio controls
@@ -50,30 +59,41 @@
         const playBtn = document.getElementById('playBtn');
         const pauseBtn = document.getElementById('pauseBtn');
         const stopBtn = document.getElementById('stopBtn');
-
+        const volumeSlider = document.getElementById('volumeSlider');
+    
+        // Retrieve saved volume from localStorage or set default to 1
+        const savedVolume = localStorage.getItem('audioVolume');
+        audio.volume = savedVolume ? parseFloat(savedVolume) : 1;
+        volumeSlider.value = audio.volume;
+    
         // Play button functionality
         playBtn.addEventListener('click', () => {
             audio.play();
         });
-
+    
         // Pause button functionality
         pauseBtn.addEventListener('click', () => {
             audio.pause();
         });
-
+    
         // Stop button functionality
         stopBtn.addEventListener('click', () => {
             audio.pause();
             audio.currentTime = 0; // Reset playback to the beginning
         });
-
+    
+        // Volume control functionality
+        volumeSlider.addEventListener('input', () => {
+            audio.volume = volumeSlider.value;
+            localStorage.setItem('audioVolume', volumeSlider.value); // Save volume
+        });
+    
+        // Spacebar to auto-play music
         document.addEventListener('keydown', (event) => {
-    if (event.code === 'Space') {
-        event.preventDefault(); // Prevent conflicts with Kaboom.js
-        audio.play();
-    }
-});
-
+            if (event.code === 'Space') {
+                audio.play();
+            }
+        });
     </script>
     <script src="game4.js"></script>
 </body>
